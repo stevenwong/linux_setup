@@ -41,11 +41,6 @@ max_parallel_workers = 8
 
 seq_page_cost = 1.0			# measured on an arbitrary scale	
 random_page_cost = 1.0			# same scale as above	
-cpu_tuple_cost = 0.01			# same scale as above	
-cpu_index_tuple_cost = 0.005		# same scale as above	
-cpu_operator_cost = 0.0025		# same scale as above	
-parallel_tuple_cost = 0.1		# same scale as above	
-parallel_setup_cost = 1000.0	# same scale as above
 
 autovacuum = on
 log_autovacuum_min_duration = 1min
@@ -58,7 +53,6 @@ sudo apt install iodbc libiodbc2 libiodbc2-dev libpq-dev libssl-dev
 # this is required
 sudo apt install odbcinst1debian2 odbc-postgresql
 
-sudo apt install odbc-postgresql
 sudo odbcinst -i -d -f /usr/share/psqlodbc/odbcinst.ini.template
 sudo odbcinst -i -s -l -n test -f /usr/share/doc/odbc-postgresql/examples/odbc.ini.template
 
