@@ -5,22 +5,22 @@
 
 # ubuntu after install https://www.thefanclub.co.za/how-to/ubuntu-after-install
 
-sudo apt-get install vim
+sudo apt install vim
 
-sudo apt-get install -y build-essential cmake unzip pkg-config
+sudo apt install -y build-essential cmake unzip pkg-config
 
 # download postgres
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-sudo apt-get update
-sudo apt-get -y install postgresql postgresql-contrib
+sudo apt update
+sudo apt -y install postgresql postgresql-contrib
 
 # go to
-vim /etc/postgresql/13/main/pg_hba.conf
-# add this as second line:wq
-local   all             all                                     md5
+vim /etc/postgresql/15/main/pg_hba.conf
+# add this as second line (may not be necessary)
+local   all             all                                     scram-sha-256
 
-sudo vim /etc/postgresql/13/main/postgresql.conf
+sudo vim /etc/postgresql/15/main/postgresql.conf
 # uncomment
 listen_addresses = 'localhost'
 # comment out ssh
@@ -48,18 +48,17 @@ parallel_tuple_cost = 0.1		# same scale as above
 parallel_setup_cost = 1000.0	# same scale as above
 
 autovacuum = on
-log_autovacuum_min_duration = 0
+log_autovacuum_min_duration = 1min
 
 
 # install odbc drivers
-sudo apt-get install unixodbc unixodbc-dev
+sudo apt install unixodbc unixodbc-dev
 # not sure if the below line is required
-sudo apt-get install iodbc libiodbc2 libiodbc2-dev libpq-dev libssl-dev
+sudo apt install iodbc libiodbc2 libiodbc2-dev libpq-dev libssl-dev
 # this is required
-sudo apt-get install odbcinst1debian2 odbc-postgresql
+sudo apt install odbcinst1debian2 odbc-postgresql
 
-
-sudo apt-get install odbc-postgresql
+sudo apt install odbc-postgresql
 sudo odbcinst -i -d -f /usr/share/psqlodbc/odbcinst.ini.template
 sudo odbcinst -i -s -l -n test -f /usr/share/doc/odbc-postgresql/examples/odbc.ini.template
 
