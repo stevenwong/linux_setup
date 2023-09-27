@@ -20,7 +20,7 @@ vim /etc/postgresql/15/main/pg_hba.conf
 # add this as second line (may not be necessary)
 local   all             all                                     scram-sha-256
 
-sudo vim /etc/postgresql/15/main/postgresql.conf
+sudo vim /etc/postgresql/16/main/postgresql.conf
 # uncomment
 listen_addresses = 'localhost'
 # comment out ssh
