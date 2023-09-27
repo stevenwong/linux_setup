@@ -16,7 +16,7 @@ sudo apt update
 sudo apt -y install postgresql postgresql-contrib
 
 # go to
-vim /etc/postgresql/15/main/pg_hba.conf
+vim /etc/postgresql/16/main/pg_hba.conf
 # add this as second line (may not be necessary)
 local   all             all                                     scram-sha-256
 
