@@ -1,6 +1,10 @@
 # install sublime text
 # https://www.sublimetext.com/docs/3/linux_repositories.html
 
+# if ubuntu doesn't detect nvidia driver, check what's the latest nvidia version
+sudo ubuntu-drivers install --gpgpu
+sudo apt install nvidia-driver-525 nvidia-dkms-525 nvidia-utils-535
+
 # git https://www.gitkraken.com/
 
 # ubuntu after install https://www.thefanclub.co.za/how-to/ubuntu-after-install
