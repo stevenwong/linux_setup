@@ -39,23 +39,23 @@ shared_buffers = 512MB
 temp_buffers = 512MB
 work_mem = 128MB
 vacuum_cost_limit = 10000
-max_worker_processes = 8
+#max_worker_processes = 8
 max_parallel_workers_per_gather = 4
-max_parallel_workers = 8
+#max_parallel_workers = 8
 
 seq_page_cost = 1.0			# measured on an arbitrary scale	
 random_page_cost = 1.0			# same scale as above	
 
-autovacuum = on
-log_autovacuum_min_duration = 1min
+#autovacuum = on
+#log_autovacuum_min_duration = 1min
 
 
 # install odbc drivers
 sudo apt install unixodbc unixodbc-dev
 # not sure if the below line is required
-sudo apt install iodbc libiodbc2 libiodbc2-dev libpq-dev libssl-dev
+sudo apt install libiodbc2 libiodbc2-dev libpq-dev libssl-dev
 # this is required
-sudo apt install odbcinst1debian2 odbc-postgresql
+sudo apt install unixodbc-common odbc-postgresql
 
 sudo odbcinst -i -d -f /usr/share/psqlodbc/odbcinst.ini.template
 sudo odbcinst -i -s -l -n test -f /usr/share/doc/odbc-postgresql/examples/odbc.ini.template
