@@ -3,7 +3,9 @@
 
 # if ubuntu doesn't detect nvidia driver, check what's the latest nvidia version
 sudo ubuntu-drivers install --gpgpu
-sudo apt install nvidia-driver-525 nvidia-dkms-525 nvidia-utils-535
+# check what version of CUDA TF is using. Usually, TF is more up to date than Pytorch and cuda is backward compatible
+# https://www.tensorflow.org/install/pip
+sudo apt install nvidia-driver-545 nvidia-dkms-545 nvidia-utils-545
 
 # git https://www.gitkraken.com/
 
