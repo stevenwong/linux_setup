@@ -68,29 +68,7 @@ sudo vim /etc/odbcinst.ini
 # /usr/lib/x86_64-linux-gnu/odbc/
 
 
-# install cuda
-sudo apt install nvidia-cuda-toolkit
-# add this at the end of .bashrc
-export CUDA_PATH=/usr
-source ~/.bashrc
-# check that cuda 11.2 is installed
-nvidia-smi
-
-# install cudnn. First download from nvidia and extract it
-sudo cp cuda/include/cudnn*.h /usr/lib/cuda/include
-sudo cp -P cuda/lib64/libcudnn* /usr/lib/cuda/lib64 
-sudo chmod a+r /usr/lib/cuda/include/cudnn*.h /usr/lib/cuda/lib64/libcudnn*
-echo 'export LD_LIBRARY_PATH=/usr/lib/cuda/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
-echo 'export LD_LIBRARY_PATH=/usr/lib/cuda/include:$LD_LIBRARY_PATH' >> ~/.bashrc 
-sudo ln -s /usr/lib/cuda /usr/local/cuda-11.2
-
-
-# optionally test that cuda is working correctly
-wget https://github.com/NVIDIA/cuda-samples/archive/v11.2.tar.gz
-tar xvf v11.2.tar.gz 
-cd cuda-samples-11.2
-make SMS="86"
-./bin/x86_64/linux/release/immaTensorCoreGemm 
+sudo apt install openssh-server
 
 
 watch -d -n 0.5 nvidia-smi
