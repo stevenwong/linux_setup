@@ -23,7 +23,7 @@ sudo apt -y install postgresql postgresql-contrib
 
 # go to
 vim /etc/postgresql/17/main/pg_hba.conf
-# add this as second line (may not be necessary)
+# add this as second line (enables password connection for non-postgres users)
 local   all             all                                     scram-sha-256
 
 sudo vim /etc/postgresql/17/main/postgresql.conf
