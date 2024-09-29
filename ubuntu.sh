@@ -22,11 +22,11 @@ sudo apt update
 sudo apt -y install postgresql postgresql-contrib
 
 # go to
-vim /etc/postgresql/16/main/pg_hba.conf
+vim /etc/postgresql/17/main/pg_hba.conf
 # add this as second line (may not be necessary)
 local   all             all                                     scram-sha-256
 
-sudo vim /etc/postgresql/16/main/postgresql.conf
+sudo vim /etc/postgresql/17/main/postgresql.conf
 # uncomment
 listen_addresses = 'localhost'
 # comment out ssh
