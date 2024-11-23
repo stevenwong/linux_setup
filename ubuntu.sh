@@ -22,13 +22,17 @@ sudo apt update
 sudo apt -y install postgresql postgresql-contrib
 
 # go to
-vim /etc/postgresql/17/main/pg_hba.conf
+sudo vim /etc/postgresql/17/main/pg_hba.conf
 # add this as second line (enables password connection for non-postgres users)
 local   all             all                                     scram-sha-256
+# add this line for docker
+host    all    all    172.17.0.0/16    md5
 
 sudo vim /etc/postgresql/17/main/postgresql.conf
 # uncomment
-listen_addresses = 'localhost'
+# listen_addresses = 'localhost'
+# for docker to work, you need the below
+listen_addresses = '*'
 # comment out ssh
 #ssl = on
 #ssl_ca_file = ''
@@ -70,6 +74,8 @@ sudo vim /etc/odbcinst.ini
 
 sudo apt install openssh-server
 
-
-watch -d -n 0.5 nvidia-smi
+# if using docker, you need to do this to enable connection to localhost
+sudo ip addr show docker0 | grep inet
+# check that the IP is the same as below
+echo "172.17.0.1 host.docker.internal" | sudo tee -a /etc/hosts
 
