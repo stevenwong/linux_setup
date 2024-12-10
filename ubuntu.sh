@@ -74,6 +74,7 @@ sudo vim /etc/odbcinst.ini
 
 sudo apt install openssh-server
 
+# docker can be installed via snap
 # if using docker, you need to do this to enable connection to localhost
 sudo ip addr show docker0 | grep inet
 # check that the IP is the same as below
