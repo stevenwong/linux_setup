@@ -40,10 +40,10 @@ listen_addresses = '*'
 #ssl_crl_file = ''
 #ssl_key_file = '/etc/ssl/private/ssl-cert-snakeoil.key'
 
-# change the following values
-shared_buffers = 512MB
-temp_buffers = 512MB
-work_mem = 128MB
+# change the following values. Depending on how much system memory this machine has, set shared buffers to ~30% of system memory
+shared_buffers = 16384MB
+temp_buffers = 1024MB
+work_mem = 1024MB
 vacuum_cost_limit = 10000
 #max_worker_processes = 8
 max_parallel_workers_per_gather = 4
