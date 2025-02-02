@@ -48,6 +48,8 @@ vacuum_cost_limit = 10000
 #max_worker_processes = 8
 max_parallel_workers_per_gather = 4
 #max_parallel_workers = 8
+autovacuum_max_workers = 5
+autovacuum_vacuum_scale_factor = 0.02
 
 seq_page_cost = 1.0			# measured on an arbitrary scale	
 random_page_cost = 1.0			# same scale as above	
