@@ -82,3 +82,5 @@ sudo ip addr show docker0 | grep inet
 # check that the IP is the same as below
 echo "172.17.0.1 host.docker.internal" | sudo tee -a /etc/hosts
 
+# if you plan on using docker with cuda, you need to install nvidia container toolkit
+# https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
