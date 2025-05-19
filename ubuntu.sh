@@ -5,7 +5,7 @@
 sudo ubuntu-drivers install --gpgpu
 # check what version of CUDA TF is using. Usually, TF is more up to date than Pytorch and cuda is backward compatible
 # https://www.tensorflow.org/install/pip
-sudo apt install nvidia-driver-545 nvidia-dkms-545 nvidia-utils-545
+sudo apt install nvidia-driver-570 nvidia-dkms-570 nvidia-utils-570
 
 # git https://www.gitkraken.com/
 
@@ -16,9 +16,6 @@ sudo apt install vim
 sudo apt install -y build-essential cmake unzip pkg-config
 
 # download postgres
-sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-sudo apt update
 sudo apt -y install postgresql postgresql-contrib
 
 # go to
