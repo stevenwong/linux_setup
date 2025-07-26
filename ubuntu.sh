@@ -5,7 +5,7 @@
 sudo ubuntu-drivers install --gpgpu
 # check what version of CUDA TF is using. Usually, TF is more up to date than Pytorch and cuda is backward compatible
 # https://www.tensorflow.org/install/pip
-sudo apt install nvidia-driver-570 nvidia-dkms-570 nvidia-utils-570
+sudo apt install nvidia-headless-570 nvidia-dkms-570 nvidia-utils-570
 
 # git https://www.gitkraken.com/
 
