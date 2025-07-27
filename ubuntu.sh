@@ -4,7 +4,7 @@
 # if ubuntu doesn't detect nvidia driver, check what's the latest nvidia version
 sudo ubuntu-drivers devices
 # nvidia is transitioning to open source kernel drivers. From how on, use server-open if headless
-sudo apt install nvidia-driver-575-server-open nvidia-utils-575-server
+sudo apt install nvidia-driver-570-server-open nvidia-utils-570-server
 
 # git https://www.gitkraken.com/
 
