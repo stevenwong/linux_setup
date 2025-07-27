@@ -2,10 +2,9 @@
 # https://www.sublimetext.com/docs/3/linux_repositories.html
 
 # if ubuntu doesn't detect nvidia driver, check what's the latest nvidia version
-sudo ubuntu-drivers install --gpgpu
-# check what version of CUDA TF is using. Usually, TF is more up to date than Pytorch and cuda is backward compatible
-# https://www.tensorflow.org/install/pip
-sudo apt install nvidia-headless-570 nvidia-dkms-570 nvidia-utils-570
+sudo ubuntu-drivers devices
+# nvidia is transitioning to open source kernel drivers. From how on, use server-open if headless
+sudo apt install nvidia-driver-575-server-open nvidia-utils-575-server
 
 # git https://www.gitkraken.com/
 
