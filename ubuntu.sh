@@ -14,6 +14,10 @@ sudo apt install vim
 
 sudo apt install -y build-essential cmake unzip pkg-config
 
+# for monitoring CPU temp
+sudo apt install s-tui
+s-tui
+
 # download postgres
 sudo apt -y install postgresql postgresql-contrib
 
