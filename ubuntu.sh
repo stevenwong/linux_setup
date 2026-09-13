@@ -41,21 +41,12 @@ listen_addresses = '*'
 #ssl_key_file = '/etc/ssl/private/ssl-cert-snakeoil.key'
 
 # change the following values. Depending on how much system memory this machine has, set shared buffers to ~30% of system memory
-shared_buffers = 16384MB
-temp_buffers = 1024MB
-work_mem = 1024MB
-vacuum_cost_limit = 10000
-#max_worker_processes = 8
-max_parallel_workers_per_gather = 4
-#max_parallel_workers = 8
-autovacuum_max_workers = 5
-autovacuum_vacuum_scale_factor = 0.02
-
+shared_buffers = 16GB
+effective_cache_size = 32GB
 seq_page_cost = 1.0			# measured on an arbitrary scale	
 random_page_cost = 1.0			# same scale as above	
-
-#autovacuum = on
-#log_autovacuum_min_duration = 1min
+work_mem = 16MB
+maintenance_work_mem = 1GB
 
 
 # install odbc drivers
