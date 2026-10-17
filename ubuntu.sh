@@ -77,3 +77,17 @@ echo "172.17.0.1 host.docker.internal" | sudo tee -a /etc/hosts
 
 # if you plan on using docker with cuda, you need to install nvidia container toolkit
 # https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
+
+# firewall
+sudo apt install -y ufw
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow from 192.168.50.0/24 to any port 22 proto tcp
+sudo ufw allow from 192.168.50.0/24 to any port 80 proto tcp
+sudo ufw allow from 192.168.50.0/24 to any port 5433 proto tcp
+sudo ufw enable
+sudo ufw status verbose
+
+# enable unattended upgrades
+sudo apt install -y unattended-upgrades
+sudo dpkg-reconfigure unattended-upgrades
