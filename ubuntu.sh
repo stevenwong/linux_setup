@@ -22,13 +22,13 @@ s-tui
 sudo apt -y install postgresql postgresql-contrib
 
 # go to
-sudo vim /etc/postgresql/17/main/pg_hba.conf
+sudo vim /etc/postgresql/18/main/pg_hba.conf
 # add this as second line (enables password connection for non-postgres users)
 local   all             all                                     scram-sha-256
 # add this line for docker
 host    all    all    172.17.0.0/16    md5
 
-sudo vim /etc/postgresql/17/main/postgresql.conf
+sudo vim /etc/postgresql/18/main/postgresql.conf
 # uncomment
 # listen_addresses = 'localhost'
 # for docker to work, you need the below
@@ -41,12 +41,14 @@ listen_addresses = '*'
 #ssl_key_file = '/etc/ssl/private/ssl-cert-snakeoil.key'
 
 # change the following values. Depending on how much system memory this machine has, set shared buffers to ~30% of system memory
-shared_buffers = 16GB
-effective_cache_size = 32GB
-seq_page_cost = 1.0			# measured on an arbitrary scale	
-random_page_cost = 1.0			# same scale as above	
-work_mem = 16MB
-maintenance_work_mem = 1GB
+shared_buffers	16GB	# PostgreSQL shared buffer cache
+effective_cache_size	44GB	# Planner estimate of available cache
+work_mem	16MB	# Memory per sort/hash operation, per operation and potentially per worker
+maintenance_work_mem	1GB	# Memory for maintenance operations
+max_connections	100	# Connection limit
+wal_compression	on	# Can reduce WAL volume for compressible page images
+random_page_cost	1.1	# Starting planner estimate for SSD random reads
+effective_io_concurrency	200	# Starting I/O concurrency estimate for modern SSD storage
 
 
 # install odbc drivers
